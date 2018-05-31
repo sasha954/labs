@@ -1,0 +1,39 @@
+bin
+build
+.mock
+.mock.json
+.classpath
+.gradle
+.project
+.settings
+.springBeans
+.DS_Store
+.vagrant
+.vscode
+*.class
+*.MF
+out
+*.swp
+*~
+
+# Package Files #
+*.jar
+*.war
+*.ear
+
+# IntelliJ project files
+*.iml
+*.iws
+*.ipr
+.idea
+
+#winmerge backups
+*.bak
+
+#log  files
+*.log
+
+*sonar*
+
+#jrebel config
+rebel.xml
