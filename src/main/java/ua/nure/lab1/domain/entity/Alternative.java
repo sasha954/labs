@@ -1,4 +1,4 @@
-package ua.nure.lab1.domain;
+package ua.nure.lab1.domain.entity;
 
 public class Alternative extends Entity {
     private String name;
@@ -11,8 +11,9 @@ public class Alternative extends Entity {
         this.name = name;
     }
 
-    public Alternative(String name) {
+    public Alternative(int id, String name) {
         this.name = name;
+        super.setId(id);
     }
 
     public Alternative() {

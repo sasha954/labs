@@ -1,4 +1,4 @@
-package ua.nure.lab1.domain;
+package ua.nure.lab1.domain.entity;
 
 import java.io.Serializable;
 

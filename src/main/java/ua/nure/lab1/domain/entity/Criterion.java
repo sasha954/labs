@@ -1,4 +1,4 @@
-package ua.nure.lab1.domain;
+package ua.nure.lab1.domain.entity;
 
 public class Criterion extends Entity {
     private String name;
