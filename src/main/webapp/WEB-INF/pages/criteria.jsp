@@ -1,3 +1,4 @@
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@include file="../jspf/header.jspf" %>
 <header class="main-header">
@@ -13,17 +14,17 @@
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="/alternatives">Alternative <span class="sr-only">(current)</span></a>
+            </li>
             <li class="nav-item active">
-              <a class="nav-link" href="#">Alternative <span class="sr-only">(current)</span></a>
+              <a class="nav-link" href="/criteria">Criteria</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Criteria</a>
+              <a class="nav-link" href="/marks">Marks</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Marks</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Vectors</a>
+              <a class="nav-link" href="/vectors">Vectors</a>
             </li>
           </ul>
         </div>
@@ -33,30 +34,40 @@
 </header>
 <section class="container main-content">
   <div class="title-wrapper row">
-    <p class="h3">Alternative</p>
+    <p class="h3">Criteria</p>
   </div>
   <div class="form-container row">
-    <div class="form-wrapper">
-      <form action="" method="post">
-        <div class="form-group">
-          <label for="alternative-name">Alternative name:</label>
-          <input type="text" class="form-control" id="alternative-name" name="name"/>
-        </div>
-        <div class="form-group">
-          <input type="submit" class="btn btn-primary half-width" value="Create">
-        </div>
-      </form>
-    </div>
+    <a href="#">Создать критерий</a>
   </div>
   <div class="content-wrapper row">
-    <ul class="data-list">
-      <li class="data-list__elem__header">
-
-      </li>
-      <c:forEach var="elem" items="${alternativeList}">
-        <li>${elem.id} | ${elem.name}</li>
+    <table class="table">
+      <thead>
+      <tr>
+        <th>Criteria name</th>
+        <th>Criteria type</th>
+        <th>Criteria optimality</th>
+        <th>Units</th>
+        <th>Scale type</th>
+        <th></th>
+      </tr>
+      </thead>
+      <tbody>
+      <c:forEach var="criteria" items="${criteriaList}">
+        <tr>
+          <td>${criteria.name}</td>
+          <td>${criteria.type}</td>
+          <td>${criteria.optimType}</td>
+          <td>${criteria.units}</td>
+          <td>${criteria.scaleType}</td>
+          <td>
+            <a href="#" class="action-link" data-id="${criteria.id}">Preview</a>
+            <a href="#" class="action-link" data-id="${criteria.id}">Update</a>
+            <a href="#" class="action-link last" data-id="${criteria.id}">Remove</a>
+          </td>
+        </tr>
       </c:forEach>
-    </ul>
+      </tbody>
+    </table>
   </div>
 </section>
 </div>

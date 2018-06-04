@@ -5,9 +5,10 @@ public class Mark extends Entity {
     private int range;
     private int numMark;
     private int normMark;
-    private Criterion criterion;
+    private Criteria criterion;
 
-    public Mark(String name, int range, int numMark, int normMark, Criterion criterion) {
+    public Mark(int id, String name, int range, int numMark, int normMark, Criteria criterion) {
+        setId(id);
         this.name = name;
         this.range = range;
         this.numMark = numMark;
@@ -62,11 +63,11 @@ public class Mark extends Entity {
         this.normMark = normMark;
     }
 
-    public Criterion getCriterion() {
+    public Criteria getCriterion() {
         return criterion;
     }
 
-    public void setCriterion(Criterion criterion) {
+    public void setCriterion(Criteria criterion) {
         this.criterion = criterion;
     }
 }

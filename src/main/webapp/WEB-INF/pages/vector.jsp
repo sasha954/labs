@@ -1,3 +1,4 @@
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@include file="../jspf/header.jspf" %>
 <header class="main-header">
@@ -13,17 +14,17 @@
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-              <a class="nav-link" href="#">Alternative <span class="sr-only">(current)</span></a>
+            <li class="nav-item">
+              <a class="nav-link" href="/alternatives">Alternative <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Criteria</a>
+              <a class="nav-link" href="/criteria">Criteria</a>
+            </li>
+            <li class="nav-item activea">
+              <a class="nav-link" href="/marks">Marks</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Marks</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Vectors</a>
+              <a class="nav-link" href="/vectors">Vectors</a>
             </li>
           </ul>
         </div>
@@ -33,30 +34,28 @@
 </header>
 <section class="container main-content">
   <div class="title-wrapper row">
-    <p class="h3">Alternative</p>
+    <p class="h3">Вектор</p>
   </div>
   <div class="form-container row">
-    <div class="form-wrapper">
-      <form action="" method="post">
-        <div class="form-group">
-          <label for="alternative-name">Alternative name:</label>
-          <input type="text" class="form-control" id="alternative-name" name="name"/>
-        </div>
-        <div class="form-group">
-          <input type="submit" class="btn btn-primary half-width" value="Create">
-        </div>
-      </form>
-    </div>
+    <a href="#">Создать вектор</a>
   </div>
   <div class="content-wrapper row">
-    <ul class="data-list">
-      <li class="data-list__elem__header">
+    <c:forEach var="vectors" items="${vectorList}">
+      <div class="mark-list-wrapper">
+        <ul class="mark-list">
+          <li class="mark-list__header h6">${vectors.alternative.name}</li>
+          <c:forEach var="mark" items="${vectors.mark}">
+            <li class="mark-list__item">${mark.criterion.name} <span class="mark-list__mark-value">${mark.numMark}</span>
 
-      </li>
-      <c:forEach var="elem" items="${alternativeList}">
-        <li>${elem.id} | ${elem.name}</li>
-      </c:forEach>
-    </ul>
+              <div class="actions">
+              <a class="action-link" data-action="update" data-id="${mark.id}" href="#">Редактировать</a>
+              <a class="action-link" data-action="preview" data-id="${mark.id}" href="#">Просмотр</a>
+              <a class="action-link last" data-action="remove" data-id="${mark.id}" href="#">Удалить</a>
+            </div></li>
+          </c:forEach>
+        </ul>
+      </div>
+    </c:forEach>
   </div>
 </section>
 </div>

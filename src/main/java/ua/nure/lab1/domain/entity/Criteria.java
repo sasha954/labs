@@ -1,6 +1,6 @@
 package ua.nure.lab1.domain.entity;
 
-public class Criterion extends Entity {
+public class Criteria extends Entity {
     private String name;
     private int range;
     private int weight;
@@ -9,7 +9,8 @@ public class Criterion extends Entity {
     private String units;
     private String scaleType;
 
-    public Criterion(String name, int range, int weight, String type, String optimType, String units, String scaleType) {
+    public Criteria(int id, String name, int range, int weight, String type, String optimType, String units, String scaleType) {
+        setId(id);
         this.name = name;
         this.range = range;
         this.weight = weight;
@@ -19,7 +20,7 @@ public class Criterion extends Entity {
         this.scaleType = scaleType;
     }
 
-    public Criterion() {
+    public Criteria() {
     }
 
     public String getName() {

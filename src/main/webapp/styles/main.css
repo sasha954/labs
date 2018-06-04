@@ -1,0 +1,76 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: #f3f2f2;
+}
+
+.main-header {
+  background-color: #007bff;
+}
+
+.navbar {
+  padding-left: 0;
+}
+
+.title-wrapper {
+  margin-top: 2em;
+  margin-bottom: 2em;
+}
+
+.form-wrapper {
+  width: 40%;
+  margin-bottom: 2em;
+}
+
+.half-width {
+  width: 50%;
+}
+
+.mark-list-wrapper {
+  width: 100%;
+  margin-top: 1.5em;
+}
+
+.mark-list {
+  box-shadow: 1px 0 10px rgba(97, 97, 97, 0.6);
+  list-style: none;
+  padding: 0 1.2em;
+}
+
+.mark-list > * {
+  padding: 10px 0;
+}
+
+.mark-list__item {
+  border-top: 1px solid #bfbfbf;
+}
+
+.actions {
+  float: right;
+  position: relative;
+  right: 25%;
+}
+
+.action-link {
+  margin: 0 -2px;
+  padding: 0;
+}
+
+.action-link:not(.last):after {
+  content: "|";
+  margin: 0 5px;
+}
+
+.action-link:hover:not(.last):after {
+  content: "|";
+  margin: 0 5px;
+  color: #007bff;
+}
+
+.mark-list__mark-value {
+  position: relative;
+  left: 25%;
+}

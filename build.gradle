@@ -4,11 +4,16 @@ version '1.0-SNAPSHOT'
 apply plugin: 'java'
 
 sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+compileJava.options.encoding = "UTF-8"
+compileTestJava.options.encoding = "UTF-8"
 
 repositories {
     dependencies {
         compile group: 'org.springframework.boot', name: 'spring-boot-starter-web', version: '2.0.2.RELEASE'
         compile group: 'org.springframework.boot', name: 'spring-boot-starter-tomcat', version: '2.0.2.RELEASE'
+        compile group: 'org.springframework.boot', name: 'spring-boot-devtools', version: '2.0.2.RELEASE'
 
         compile group: 'org.apache.commons', name: 'commons-collections4', version: '4.1'
         compile "org.apache.commons:commons-lang3:3.7"

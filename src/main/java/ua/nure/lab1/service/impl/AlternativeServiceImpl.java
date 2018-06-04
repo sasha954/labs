@@ -1,7 +1,8 @@
-package ua.nure.lab1.service;
+package ua.nure.lab1.service.impl;
 
 import org.springframework.stereotype.Service;
 import ua.nure.lab1.domain.entity.Alternative;
+import ua.nure.lab1.service.AlternativeService;
 
 import java.util.Arrays;
 import java.util.List;
@@ -19,5 +20,20 @@ public class AlternativeServiceImpl implements AlternativeService {
                 new Alternative(6, "Alt6"),
                 new Alternative(7, "Alt7"),
                 new Alternative(8, "Alt8"));
+    }
+
+    @Override
+    public Alternative createNewAlternative(Alternative alternative) {
+        return null;
+    }
+
+    @Override
+    public void deleteAlternative(int alternative) {
+
+    }
+
+    @Override
+    public Alternative updateAlternative(Alternative alternative) {
+        return null;
     }
 }

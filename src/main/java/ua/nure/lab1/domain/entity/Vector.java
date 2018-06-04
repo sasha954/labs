@@ -1,10 +1,12 @@
 package ua.nure.lab1.domain.entity;
 
+import java.util.List;
+
 public class Vector extends Entity {
     private Alternative alternative;
-    private Mark mark;
+    private List<Mark> mark;
 
-    public Vector(Alternative alternative, Mark mark) {
+    public Vector(Alternative alternative, List<Mark> mark) {
         this.alternative = alternative;
         this.mark = mark;
     }
@@ -20,11 +22,11 @@ public class Vector extends Entity {
         this.alternative = alternative;
     }
 
-    public Mark getMark() {
+    public List<Mark> getMark() {
         return mark;
     }
 
-    public void setMark(Mark mark) {
+    public void setMark(List<Mark> mark) {
         this.mark = mark;
     }
 }
