@@ -1,8 +1,7 @@
 package ua.nure.lab1.service.impl;
 
 import org.springframework.stereotype.Service;
-import ua.nure.lab1.domain.entity.Criteria;
-import ua.nure.lab1.domain.entity.Mark;
+import ua.nure.lab1.domain.entity.*;
 import ua.nure.lab1.service.MarkService;
 
 import java.util.Arrays;
@@ -12,6 +11,9 @@ import java.util.Map;
 
 import static java.util.stream.Collectors.groupingBy;
 import static java.util.stream.Collectors.toList;
+import static ua.nure.lab1.domain.entity.OptimalityType.OPTIMALITY_TYPE1;
+import static ua.nure.lab1.domain.entity.ScaleType.SCALE_TYPE1;
+import static ua.nure.lab1.domain.entity.Type.TYPE1;
 
 @Service
 public class MockMarkService implements MarkService {
@@ -45,6 +47,6 @@ public class MockMarkService implements MarkService {
     }
 
     private Criteria constructCriteria(String name) {
-        return new Criteria(1, name, 1, 1, "Type", "OptimType", "Units", "ScaleType");
+        return new Criteria(1, name, 1, 1, TYPE1, OPTIMALITY_TYPE1, "Units", SCALE_TYPE1);
     }
 }

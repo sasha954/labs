@@ -4,12 +4,12 @@ public class Criteria extends Entity {
     private String name;
     private int range;
     private int weight;
-    private String type;
-    private String optimType;
+    private Type type;
+    private OptimalityType optimType;
     private String units;
-    private String scaleType;
+    private ScaleType scaleType;
 
-    public Criteria(int id, String name, int range, int weight, String type, String optimType, String units, String scaleType) {
+    public Criteria(int id, String name, int range, int weight, Type type, OptimalityType optimType, String units, ScaleType scaleType) {
         setId(id);
         this.name = name;
         this.range = range;
@@ -47,19 +47,19 @@ public class Criteria extends Entity {
         this.weight = weight;
     }
 
-    public String getType() {
+    public Type getType() {
         return type;
     }
 
-    public void setType(String type) {
+    public void setType(Type type) {
         this.type = type;
     }
 
-    public String getOptimType() {
+    public OptimalityType getOptimType() {
         return optimType;
     }
 
-    public void setOptimType(String optimType) {
+    public void setOptimType(OptimalityType optimType) {
         this.optimType = optimType;
     }
 
@@ -71,11 +71,23 @@ public class Criteria extends Entity {
         this.units = units;
     }
 
-    public String getScaleType() {
+    public ScaleType getScaleType() {
         return scaleType;
     }
 
-    public void setScaleType(String scaleType) {
+    public void setScaleType(ScaleType scaleType) {
         this.scaleType = scaleType;
+    }
+
+    @Override
+    public String toString() {
+        return "Criteria{" + "name='" + name + '\'' +
+                ", range=" + range +
+                ", weight=" + weight +
+                ", type=" + type +
+                ", optimType=" + optimType +
+                ", units='" + units + '\'' +
+                ", scaleType=" + scaleType +
+                '}';
     }
 }

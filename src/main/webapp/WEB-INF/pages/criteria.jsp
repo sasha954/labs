@@ -37,7 +37,35 @@
     <p class="h3">Criteria</p>
   </div>
   <div class="form-container row">
-    <a href="#">Создать критерий</a>
+    <a href="javascript:void(0)" data-toggle="modal" data-target=".bd-example-modal-lg">Создать критерий</a>
+  </div>
+  <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <section class="popup-header">
+          <h5>Создать/Редактировать критерий</h5>
+        </section>
+
+        <div class="popup-form-wrapper">
+          <form method="post" action="/criteria">
+            <div class="form-group"><label for="criteria-name">Название:</label>
+            <input type="text" name="" class="form-control" id="criteria-name" placeholder="Название"></div>
+            <div class="form-group"><label for="criteria-range">Ранг:</label>
+            <div class="form-group">
+            <label for="criteria-type">Тип</label>
+              <select class="form-control" id="criteria-type" name="">
+                <c:forEach var="elem" items="${Type.values}">
+                  <option value="${elem}">${elem.value}</option>
+                </c:forEach>
+              </select>
+            </div>
+            <input type="text" name="" class="form-control" id="criteria-range" placeholder="Ранг"></div>
+            <div class="form-group"><label for="criteria-scale">Еденица измерения:</label>
+            <input type="text" name="" class="form-control" id="criteria-scale" placeholder="Еденица измерения"></div>
+          </form>
+        </div>
+      </div>
+    </div>
   </div>
   <div class="content-wrapper row">
     <table class="table">
@@ -55,10 +83,10 @@
       <c:forEach var="criteria" items="${criteriaList}">
         <tr>
           <td>${criteria.name}</td>
-          <td>${criteria.type}</td>
-          <td>${criteria.optimType}</td>
+          <td>${criteria.type.value}</td>
+          <td>${criteria.optimType.value}</td>
           <td>${criteria.units}</td>
-          <td>${criteria.scaleType}</td>
+          <td>${criteria.scaleType.value}</td>
           <td>
             <a href="#" class="action-link" data-id="${criteria.id}">Preview</a>
             <a href="#" class="action-link" data-id="${criteria.id}">Update</a>

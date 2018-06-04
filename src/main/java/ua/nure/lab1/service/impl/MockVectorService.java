@@ -10,6 +10,10 @@ import ua.nure.lab1.service.VectorService;
 import java.util.Arrays;
 import java.util.List;
 
+import static ua.nure.lab1.domain.entity.OptimalityType.OPTIMALITY_TYPE1;
+import static ua.nure.lab1.domain.entity.ScaleType.SCALE_TYPE1;
+import static ua.nure.lab1.domain.entity.Type.TYPE1;
+
 @Service
 public class MockVectorService implements VectorService {
 
@@ -69,6 +73,6 @@ public class MockVectorService implements VectorService {
     }
 
     private Criteria constructCriteria(String name) {
-        return new Criteria(1, name, 1, 1, "Type", "OptimType", "Units", "ScaleType");
+        return new Criteria(1, name, 1, 1, TYPE1, OPTIMALITY_TYPE1, "Units", SCALE_TYPE1);
     }
 }
