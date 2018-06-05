@@ -29,16 +29,16 @@ public class MockMarkService implements MarkService {
 
     private List<Mark> constructMarkList() {
         return Arrays.asList(
-                constructMark(1, "Mark1", 1, 4, 3, constructCriteria("Criteria1")),
-                constructMark(2, "Mark2", 1, 4, 3, constructCriteria("Criteria1")),
-                constructMark(3, "Mark3", 1, 4, 3, constructCriteria("Criteria1")),
+                constructMark(1, "Mark1", 1, 1, 3, constructCriteria("Criteria1")),
+                constructMark(2, "Mark2", 1, 2, 3, constructCriteria("Criteria1")),
+                constructMark(3, "Mark3", 1, 3, 3, constructCriteria("Criteria1")),
                 constructMark(4, "Mark4", 1, 4, 3, constructCriteria("Criteria2")),
-                constructMark(5, "Mark5", 1, 4, 3, constructCriteria("Criteria3")),
-                constructMark(6, "Mark6", 1, 4, 3, constructCriteria("Criteria2")),
-                constructMark(7, "Mark7", 1, 4, 3, constructCriteria("Criteria2")),
-                constructMark(8, "Mark8", 1, 4, 3, constructCriteria("Criteria3")),
-                constructMark(9, "Mark9", 1, 4, 3, constructCriteria("Criteria1")),
-                constructMark(10, "Mark10", 1, 4, 3, constructCriteria("Criteria1"))
+                constructMark(5, "Mark5", 1, 5, 3, constructCriteria("Criteria3")),
+                constructMark(6, "Mark6", 1, 6, 3, constructCriteria("Criteria2")),
+                constructMark(7, "Mark7", 1, 7, 3, constructCriteria("Criteria2")),
+                constructMark(8, "Mark8", 1, 8, 3, constructCriteria("Criteria3")),
+                constructMark(9, "Mark9", 1, 9, 3, constructCriteria("Criteria1")),
+                constructMark(10, "Mark10", 1, 10, 3, constructCriteria("Criteria1"))
         );
     }
 

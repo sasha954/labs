@@ -37,8 +37,52 @@
     <p class="h3">Вектор</p>
   </div>
   <div class="form-container row">
-    <a href="#">Создать вектор</a>
+    <a href="javascript:void(0)" data-toggle="modal" data-target=".bd-example-modal-lg">Создать вектор</a>
   </div>
+  <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">Создать/Редактировать вектор</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+
+            <div class="popup-form-wrapper">
+              <form method="post" action="/vectors">
+                <div class="form-group row">
+                  <label class="col-sm-2 col-form-label" for="alternative"><strong>Альтернатива: </strong></label>
+                    <div class="col-sm-10">
+                    <select class="form-control" id="alternative" name="alternativeId">
+                      <c:forEach var="alternative" items="${alternativeList}">
+                        <option value="${alternative.id}">${alternative.name}</option>
+                      </c:forEach>
+                    </select>
+                    </div>
+                </div>
+
+                 <c:forEach var="marks" items="${markMap}">
+                    <div class="form-group row">
+                    <label class="col-sm-2 col-form-label" for="mark-num"><strong>${marks.key} :</strong></label>
+                    <div class="col-sm-10">
+                      <select class="form-control" id="mark-num" name="markId">
+                        <c:forEach var="mark" items="${marks.value}">
+                          <option value="${mark.id}">${mark.numMark}</option>
+                        </c:forEach>
+                      </select>
+                      </div>
+                    </div>
+                  </c:forEach>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Закрыть</button>
+                  <button type="submit" class="btn btn-primary">Добавить</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
   <div class="content-wrapper row">
     <c:forEach var="vectors" items="${vectorList}">
       <div class="mark-list-wrapper">

@@ -42,26 +42,54 @@
   <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
       <div class="modal-content">
-        <section class="popup-header">
-          <h5>Создать/Редактировать критерий</h5>
-        </section>
+        <div class="modal-header">
+          <h5 class="modal-title">Создать/Редактировать критерий</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
 
         <div class="popup-form-wrapper">
           <form method="post" action="/criteria">
             <div class="form-group"><label for="criteria-name">Название:</label>
-            <input type="text" name="" class="form-control" id="criteria-name" placeholder="Название"></div>
+            <input type="text" name="name" class="form-control" id="criteria-name" placeholder="Название"></div>
             <div class="form-group"><label for="criteria-range">Ранг:</label>
+             <input type="text" name="range" class="form-control" id="criteria-range" placeholder="Ранг"></div>
+             <div class="form-group"><label for="criteria-weight">Вес:</label>
+             <input type="text" name="weight" class="form-control" id="criteria-weight" placeholder="Вес"></div>
             <div class="form-group">
-            <label for="criteria-type">Тип</label>
-              <select class="form-control" id="criteria-type" name="">
-                <c:forEach var="elem" items="${Type.values}">
+            <label for="criteria-type">Тип: </label>
+              <select class="form-control" id="criteria-type" name="type">
+                <c:forEach var="elem" items="${typeList}">
                   <option value="${elem}">${elem.value}</option>
                 </c:forEach>
               </select>
             </div>
-            <input type="text" name="" class="form-control" id="criteria-range" placeholder="Ранг"></div>
+            <div class="form-group">
+            <label for="criteria-type">Тип оптимизации: </label>
+              <select class="form-control" id="criteria-type" name="optimType">
+                <c:forEach var="elem" items="${optimalityTypeList}">
+                  <option value="${elem}">${elem.value}</option>
+                </c:forEach>
+              </select>
+            </div>
+
             <div class="form-group"><label for="criteria-scale">Еденица измерения:</label>
-            <input type="text" name="" class="form-control" id="criteria-scale" placeholder="Еденица измерения"></div>
+            <input type="text" name="units" class="form-control" id="criteria-scale" placeholder="Еденица измерения"></div>
+            <div class="form-group">
+              <label for="criteria-type">Тип шкалы: </label>
+              <select class="form-control" id="criteria-type" name="scaleType">
+                <c:forEach var="elem" items="${scaleTypeList}">
+                  <option value="${elem}">${elem.value}</option>
+                </c:forEach>
+              </select>
+            </div>
+
+              <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Закрыть</button>
+                      <button type="submit" class="btn btn-primary">Добавить</button>
+                    </div>
+
           </form>
         </div>
       </div>

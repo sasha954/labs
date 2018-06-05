@@ -8,6 +8,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 import ua.nure.lab1.domain.dto.CriteriaDto;
 import ua.nure.lab1.domain.entity.Criteria;
+import ua.nure.lab1.domain.entity.OptimalityType;
+import ua.nure.lab1.domain.entity.ScaleType;
+import ua.nure.lab1.domain.entity.Type;
 import ua.nure.lab1.service.CriteriaService;
 
 import javax.annotation.PostConstruct;
@@ -25,7 +28,15 @@ public class CriteriaController {
         ModelAndView modelAndView = new ModelAndView("criteria");
 
         List<Criteria> criteriaList = criteriaService.getAllCriteria();
-        modelAndView.addObject(criteriaList);
+        Type[] types = Type.values();
+        ScaleType[] scaleTypes = ScaleType.values();
+        OptimalityType[] optimalityTypes = OptimalityType.values();
+
+        modelAndView
+                .addObject(criteriaList)
+                .addObject(types)
+                .addObject(scaleTypes)
+                .addObject(optimalityTypes);
 
         return modelAndView;
     }

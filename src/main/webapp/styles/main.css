@@ -82,3 +82,16 @@ body {
 .popup-header {
   padding: 20px 20px 0 20px;
 }
+
+.custom-control-label {
+  position: absolute;
+  left: 0;
+}
+.custom-control-label:focus {
+  outline: none;
+}
+.custom-control-label:before,
+.custom-control-label:after {
+  left: 8em;
+}
+
