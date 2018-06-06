@@ -10,7 +10,7 @@ public interface CriteriaService {
 
     Criteria createCriteria(Criteria criteria);
 
-    void removeCriteria(Criteria criteria);
+    void removeCriteria(int criteriaId);
 
     Criteria updateCriteria(Criteria criteria);
 }

@@ -22,9 +22,24 @@ public class MockMarkService implements MarkService {
         return constructMap();
     }
 
+    @Override
+    public Mark createMark(Mark mark) {
+        return null;
+    }
+
+    @Override
+    public Mark updateMark(Mark mark) {
+        return null;
+    }
+
+    @Override
+    public void removeMark(int markId) {
+
+    }
+
     private Map<String, List<Mark>> constructMap() {
-      return constructMarkList().stream().collect(groupingBy(mark ->
-              mark.getCriterion().getName(), LinkedHashMap::new, toList()));
+        return constructMarkList().stream().collect(groupingBy(mark ->
+                mark.getCriterion().getName(), LinkedHashMap::new, toList()));
     }
 
     private List<Mark> constructMarkList() {

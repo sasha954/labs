@@ -1,5 +1,6 @@
 package ua.nure.lab1.service.impl;
 
+import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Service;
 import ua.nure.lab1.domain.entity.Criteria;
 import ua.nure.lab1.domain.entity.OptimalityType;
@@ -15,6 +16,7 @@ import static ua.nure.lab1.domain.entity.ScaleType.*;
 import static ua.nure.lab1.domain.entity.Type.TYPE1;
 
 @Service
+@Order(1)
 public class MockCriteriaService implements CriteriaService {
     @Override
     public List<Criteria> getAllCriteria() {
@@ -45,7 +47,7 @@ public class MockCriteriaService implements CriteriaService {
     }
 
     @Override
-    public void removeCriteria(Criteria criteria) {
+    public void removeCriteria(int criteriaId) {
 
     }
 

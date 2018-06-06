@@ -1,6 +1,8 @@
 package ua.nure.lab1.service.impl;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import ua.nure.lab1.dao.AlternativeDao;
 import ua.nure.lab1.domain.entity.Alternative;
 import ua.nure.lab1.service.AlternativeService;
 
@@ -9,6 +11,9 @@ import java.util.List;
 
 @Service
 public class AlternativeServiceImpl implements AlternativeService {
+
+    @Autowired
+    private AlternativeDao alternativeDao;
 
     @Override
     public List<Alternative> getAllAlternative() {
@@ -24,16 +29,16 @@ public class AlternativeServiceImpl implements AlternativeService {
 
     @Override
     public Alternative createNewAlternative(Alternative alternative) {
-        return null;
+        return alternativeDao.createAlternative(alternative);
     }
 
     @Override
-    public void deleteAlternative(int alternative) {
-
+    public void deleteAlternative(int alternativeId) {
+        alternativeDao.removeAlternative(alternativeId);
     }
 
     @Override
     public Alternative updateAlternative(Alternative alternative) {
-        return null;
+        return alternativeDao.updateAlternative(alternative);
     }
 }

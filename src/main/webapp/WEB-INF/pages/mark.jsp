@@ -60,7 +60,7 @@
                <div class="form-group">
                 <div class="custom-control custom-checkbox">
                   <input type="checkbox" name="normMark" class="custom-control-input" id="criteria-normalize">
-                  <label class="custom-control-label"  for="criteria-normalize">Нормализована: </label>
+                  <label class="custom-control-label" for="criteria-normalize">Нормализована: </label>
                 </div>
 
                </div>

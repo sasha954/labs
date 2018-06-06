@@ -1,5 +1,8 @@
 package ua.nure.lab1.domain.entity;
 
+import org.apache.commons.lang3.builder.ToStringBuilder;
+import org.apache.commons.lang3.builder.ToStringStyle;
+
 public class Alternative extends Entity {
     private String name;
 
@@ -21,7 +24,9 @@ public class Alternative extends Entity {
 
     @Override
     public String toString() {
-        return "Alternative{" + "name='" + name + '\'' +
-                '}';
+        return new ToStringBuilder(this, ToStringStyle.SHORT_PREFIX_STYLE)
+                .append("id", getId())
+                .append("name", name)
+                .toString();
     }
 }

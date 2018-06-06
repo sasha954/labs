@@ -7,4 +7,7 @@ import java.util.Map;
 
 public interface MarkService {
     Map<String, List<Mark>> getMark();
+    Mark createMark(Mark mark);
+    Mark updateMark(Mark mark);
+    void removeMark(int markId);
 }
