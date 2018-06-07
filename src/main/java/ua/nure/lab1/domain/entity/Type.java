@@ -1,7 +1,7 @@
 package ua.nure.lab1.domain.entity;
 
-public enum  Type {
-    TYPE1("Тип1");
+public enum Type {
+    QUANTITY("Количественный"), QUALITY("Качественный");
 
     private String value;
 
@@ -12,4 +12,4 @@ public enum  Type {
     public String getValue() {
         return value;
     }
-}
+    }

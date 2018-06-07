@@ -13,4 +13,6 @@ public interface CriteriaService {
     void removeCriteria(int criteriaId);
 
     Criteria updateCriteria(Criteria criteria);
+
+    Criteria getCriteriaById(int criteriaId);
 }

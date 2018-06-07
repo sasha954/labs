@@ -14,22 +14,22 @@ import javax.sql.DataSource;
 @EnableTransactionManagement
 public class DataBaseConfig {
 
-    @Value("db.driver")
+    @Value("${db.driver}")
     private String driver;
-    @Value("db.url")
+    @Value("${db.url}")
     private String url;
-    @Value("db.username")
+    @Value("${db.username}")
     private String username;
-    @Value("db.password")
+    @Value("${db.password}")
     private String password;
 
     @Bean
-    public DataSource dataSourse() {
+    public DataSource dataSource() {
         DriverManagerDataSource dataSource = new DriverManagerDataSource();
-       /* dataSource.setDriverClassName(driver);
+        dataSource.setDriverClassName(driver);
         dataSource.setUrl(url);
         dataSource.setUsername(username);
-        dataSource.setPassword(password);*/
+        dataSource.setPassword(password);
         return dataSource;
     }
 

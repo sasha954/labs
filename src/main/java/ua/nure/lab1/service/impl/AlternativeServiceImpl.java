@@ -17,6 +17,10 @@ public class AlternativeServiceImpl implements AlternativeService {
 
     @Override
     public List<Alternative> getAllAlternative() {
+       return alternativeDao.getAllAlternatives();
+    }
+
+    private List<Alternative> getMockList() {
         return Arrays.asList(new Alternative(1, "Alt1"),
                 new Alternative(2, "Alt2"),
                 new Alternative(3, "Alt3"),

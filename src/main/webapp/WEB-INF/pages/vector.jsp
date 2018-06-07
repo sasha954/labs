@@ -52,8 +52,8 @@
             <div class="popup-form-wrapper">
               <form method="post" action="/vectors">
                 <div class="form-group row">
-                  <label class="col-sm-2 col-form-label" for="alternative"><strong>Альтернатива: </strong></label>
-                    <div class="col-sm-10">
+                  <label class="col-sm-3 col-form-label" for="alternative"><strong>Альтернатива: </strong></label>
+                    <div class="col-sm-9">
                     <select class="form-control" id="alternative" name="alternativeId">
                       <c:forEach var="alternative" items="${alternativeList}">
                         <option value="${alternative.id}">${alternative.name}</option>
@@ -64,11 +64,11 @@
 
                  <c:forEach var="marks" items="${markMap}">
                     <div class="form-group row">
-                    <label class="col-sm-2 col-form-label" for="mark-num"><strong>${marks.key} :</strong></label>
-                    <div class="col-sm-10">
+                    <label class="col-sm-3 col-form-label" for="mark-num"><strong>${marks.key} :</strong></label>
+                    <div class="col-sm-9">
                       <select class="form-control" id="mark-num" name="markId">
                         <c:forEach var="mark" items="${marks.value}">
-                          <option value="${mark.id}">${mark.numMark}</option>
+                          <option value="${mark.id}">${mark.name}</option>
                         </c:forEach>
                       </select>
                       </div>
@@ -89,7 +89,7 @@
         <ul class="mark-list">
           <li class="mark-list__header h6">${vectors.alternative.name}</li>
           <c:forEach var="mark" items="${vectors.mark}">
-            <li class="mark-list__item">${mark.criterion.name} <span class="mark-list__mark-value">${mark.numMark}</span>
+            <li class="mark-list__item">${mark.criterion.name} <span class="mark-list__mark-value">${mark.name}</span>
 
               <div class="actions">
               <a class="action-link" data-action="update" data-id="${mark.id}" href="#">Редактировать</a>

@@ -39,7 +39,8 @@
   <div class="form-container row">
     <a href="javascript:void(0)" data-toggle="modal" data-target=".bd-example-modal-lg">Создать критерий</a>
   </div>
-  <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+  <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
+       aria-hidden="true">
     <div class="modal-dialog modal-lg">
       <div class="modal-content">
         <div class="modal-header">
@@ -52,13 +53,13 @@
         <div class="popup-form-wrapper">
           <form method="post" action="/criteria">
             <div class="form-group"><label for="criteria-name">Название:</label>
-            <input type="text" name="name" class="form-control" id="criteria-name" placeholder="Название"></div>
+              <input type="text" name="name" class="form-control" id="criteria-name" placeholder="Название"></div>
             <div class="form-group"><label for="criteria-range">Ранг:</label>
-             <input type="text" name="range" class="form-control" id="criteria-range" placeholder="Ранг"></div>
-             <div class="form-group"><label for="criteria-weight">Вес:</label>
-             <input type="text" name="weight" class="form-control" id="criteria-weight" placeholder="Вес"></div>
+              <input type="text" name="range" class="form-control" id="criteria-range" placeholder="Ранг"></div>
+            <div class="form-group"><label for="criteria-weight">Вес:</label>
+              <input type="text" name="weight" class="form-control" id="criteria-weight" placeholder="Вес"></div>
             <div class="form-group">
-            <label for="criteria-type">Тип: </label>
+              <label for="criteria-type">Тип: </label>
               <select class="form-control" id="criteria-type" name="type">
                 <c:forEach var="elem" items="${typeList}">
                   <option value="${elem}">${elem.value}</option>
@@ -66,7 +67,7 @@
               </select>
             </div>
             <div class="form-group">
-            <label for="criteria-type">Тип оптимизации: </label>
+              <label for="criteria-type">Тип оптимизации: </label>
               <select class="form-control" id="criteria-type" name="optimType">
                 <c:forEach var="elem" items="${optimalityTypeList}">
                   <option value="${elem}">${elem.value}</option>
@@ -75,7 +76,8 @@
             </div>
 
             <div class="form-group"><label for="criteria-scale">Еденица измерения:</label>
-            <input type="text" name="units" class="form-control" id="criteria-scale" placeholder="Еденица измерения"></div>
+              <input type="text" name="units" class="form-control" id="criteria-scale" placeholder="Еденица измерения">
+            </div>
             <div class="form-group">
               <label for="criteria-type">Тип шкалы: </label>
               <select class="form-control" id="criteria-type" name="scaleType">
@@ -85,10 +87,10 @@
               </select>
             </div>
 
-              <div class="modal-footer">
-                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Закрыть</button>
-                      <button type="submit" class="btn btn-primary">Добавить</button>
-                    </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Закрыть</button>
+              <button type="submit" class="btn btn-primary">Добавить</button>
+            </div>
 
           </form>
         </div>
@@ -99,11 +101,11 @@
     <table class="table">
       <thead>
       <tr>
-        <th>Criteria name</th>
-        <th>Criteria type</th>
-        <th>Criteria optimality</th>
-        <th>Units</th>
-        <th>Scale type</th>
+        <th>Название</th>
+        <th>Тип</th>
+        <th>Тип оптимальности</th>
+        <th>Единица измерения</th>
+        <th>Тип шкалы</th>
         <th></th>
       </tr>
       </thead>
@@ -116,9 +118,11 @@
           <td>${criteria.units}</td>
           <td>${criteria.scaleType.value}</td>
           <td>
-            <a href="#" class="action-link" data-id="${criteria.id}">Preview</a>
-            <a href="#" class="action-link" data-id="${criteria.id}">Update</a>
-            <a href="#" class="action-link last" data-id="${criteria.id}">Remove</a>
+              <%--<a href="#" class="action-link" data-id="${criteria.id}">Preview</a>--%>
+            <a href="javascript:void(0)" class="action-link" data-action="update-criteria" data-toggle="modal"
+               data-target=".bd-example-modal-lg" data-id="${criteria.id}">Редактировать</a>
+            <a href="<c:url value="/criteria/delete?criteria-id=${criteria.id}"/>" class="action-link last"
+               data-id="${criteria.id}">Удалить</a>
           </td>
         </tr>
       </c:forEach>

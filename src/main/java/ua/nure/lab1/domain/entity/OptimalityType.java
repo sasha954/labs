@@ -1,7 +1,7 @@
 package ua.nure.lab1.domain.entity;
 
 public enum OptimalityType {
-    OPTIMALITY_TYPE1("Тип оптимальности");
+    MINIMUM("Минимум"), MAXIMUM("Максимум");
 
     private String value;
 

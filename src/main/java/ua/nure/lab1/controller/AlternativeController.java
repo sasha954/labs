@@ -49,7 +49,7 @@ public class AlternativeController {
 
     @PostMapping("/update")
     public ModelAndView updateAlternative(Alternative alternative) {
-        //alternativeService.updateAlternative(alternative);
+        alternativeService.updateAlternative(alternative);
 
         System.out.println(alternative);
 

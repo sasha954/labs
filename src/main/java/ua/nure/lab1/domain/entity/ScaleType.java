@@ -2,7 +2,7 @@ package ua.nure.lab1.domain.entity;
 
 public enum  ScaleType {
 
-    SCALE_TYPE1("Тип шкалы1");
+    NUMBER("Числовой"), INTERVAL("Интервальный"), RANGE("Ранговый"), MARK("Бальный");
 
     private String value;
 

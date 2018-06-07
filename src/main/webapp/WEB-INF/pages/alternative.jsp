@@ -76,8 +76,9 @@
           <div class="actions">
             <a class="action-link" data-action="update"  data-toggle="modal" data-target=".bd-example-modal-lg"
              data-id="${alternative.id}" href="javascript:void(0)">Редактировать</a>
-            <a class="action-link" data-action="preview" data-id="${alternative.id}" href="javascript:void(0)">Просмотр</a>
-            <a class="action-link last" data-action="remove" data-id="${alternative.id}" href="javascript:void(0)">Удалить</a>
+            <%--<a class="action-link" data-action="preview" data-id="${alternative.id}" href="javascript:void(0)">Просмотр</a>--%>
+            <a class="action-link last" data-action="remove" data-id="${alternative.id}"
+               href="<c:url value="/alternatives/delete?alternative-id=${alternative.id}"/>">Удалить</a>
           </div>
          </li>
       </c:forEach>

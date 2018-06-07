@@ -27,56 +27,63 @@ public class Criteria extends Entity {
         return name;
     }
 
-    public void setName(String name) {
+    public Criteria setName(String name) {
         this.name = name;
+        return this;
     }
 
     public int getRange() {
         return range;
     }
 
-    public void setRange(int range) {
+    public Criteria setRange(int range) {
         this.range = range;
+        return this;
     }
 
     public int getWeight() {
         return weight;
     }
 
-    public void setWeight(int weight) {
+    public Criteria setWeight(int weight) {
         this.weight = weight;
+        return this;
     }
 
     public Type getType() {
         return type;
     }
 
-    public void setType(Type type) {
+    public Criteria setType(Type type) {
         this.type = type;
+        return this;
     }
 
     public OptimalityType getOptimType() {
         return optimType;
     }
 
-    public void setOptimType(OptimalityType optimType) {
+    public Criteria setOptimType(OptimalityType optimType) {
         this.optimType = optimType;
+        return this;
     }
 
     public String getUnits() {
         return units;
     }
 
-    public void setUnits(String units) {
+    public Criteria setUnits(String units) {
         this.units = units;
+        return this;
     }
 
     public ScaleType getScaleType() {
         return scaleType;
     }
 
-    public void setScaleType(ScaleType scaleType) {
+    public Criteria setScaleType(ScaleType scaleType) {
         this.scaleType = scaleType;
+        return this;
     }
 
     @Override

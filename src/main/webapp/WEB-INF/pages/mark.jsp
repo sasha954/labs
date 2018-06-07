@@ -39,62 +39,66 @@
   <div class="form-container row">
     <a href="javascript:void(0)" data-toggle="modal" data-target=".bd-example-modal-lg">Создать оценку</a>
   </div>
-  <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-      <div class="modal-dialog modal-lg">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title">Создать/Редактировать оценку</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
+  <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
+       aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Создать/Редактировать оценку</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
 
-          <div class="popup-form-wrapper">
-            <form method="post" action="/marks">
-              <div class="form-group"><label for="criteria-name">Название:</label>
+        <div class="popup-form-wrapper">
+          <form method="post" action="/marks">
+            <div class="form-group"><label for="criteria-name">Название:</label>
               <input type="text" name="name" class="form-control" id="criteria-name" placeholder="Название"></div>
-              <div class="form-group"><label for="criteria-range">Ранг:</label>
-               <input type="text" name="range" class="form-control" id="criteria-range" placeholder="Ранг"></div>
-               <div class="form-group"><label for="criteria-num">Значение:</label>
-               <input type="text" name="numMark" class="form-control" id="criteria-num" placeholder="Значение"></div>
-               <div class="form-group">
-                <div class="custom-control custom-checkbox">
-                  <input type="checkbox" name="normMark" class="custom-control-input" id="criteria-normalize">
-                  <label class="custom-control-label" for="criteria-normalize">Нормализована: </label>
-                </div>
+            <div class="form-group"><label for="criteria-range">Ранг:</label>
+              <input type="text" name="range" class="form-control" id="criteria-range" placeholder="Ранг"></div>
+            <div class="form-group"><label for="criteria-num">Значение:</label>
+              <input type="text" name="numMark" class="form-control" id="criteria-num" placeholder="Значение"></div>
+            <div class="form-group">
+              <div class="custom-control custom-checkbox">
+                <input type="checkbox" name="normMark" class="custom-control-input" id="criteria-normalize">
+                <label class="custom-control-label" for="criteria-normalize">Нормализована: </label>
+              </div>
 
-               </div>
-              <div class="form-group">
+            </div>
+            <div class="form-group">
               <label for="criteria-type">Тип: </label>
-                <select class="form-control" id="criteria-type" name="criteriaId">
-                  <c:forEach var="criteria" items="${criteriaList}">
-                    <option value="${criteria.id}">${criteria.name}</option>
-                  </c:forEach>
-                </select>
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Закрыть</button>
-                <button type="submit" class="btn btn-primary">Добавить</button>
-              </div>
-            </form>
-          </div>
+              <select class="form-control" id="criteria-type" name="criteriaId">
+                <c:forEach var="criteria" items="${criteriaList}">
+                  <option value="${criteria.id}">${criteria.name}</option>
+                </c:forEach>
+              </select>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Закрыть</button>
+              <button type="submit" class="btn btn-primary">Добавить</button>
+            </div>
+          </form>
         </div>
       </div>
     </div>
+  </div>
   <div class="content-wrapper row">
     <c:forEach var="marks" items="${marksMap}">
       <div class="mark-list-wrapper">
-      <p class="h6">${marks.key}</p>
-      <ul class="mark-list">
-        <li class="mark-list__header h6">Название оценки</li>
-        <c:forEach var="mark" items="${marks.value}">
-          <li class="mark-list__item">${mark.name} <div class="actions">
-            <a class="action-link" data-action="update" data-id="${mark.id}" href="#">Редактировать</a>
-            <a class="action-link" data-action="preview" data-id="${mark.id}" href="#">Просмотр</a>
-            <a class="action-link last" data-action="remove" data-id="${mark.id}" href="#">Удалить</a>
-          </div></li>
-        </c:forEach>
-      </ul>
+        <p class="h6">${marks.key}</p>
+        <ul class="mark-list">
+          <li class="mark-list__header h6">Название оценки</li>
+          <c:forEach var="mark" items="${marks.value}">
+            <li class="mark-list__item">${mark.name}
+              <div class="actions">
+                <a class="action-link" data-action="update" data-id="${mark.id}" href="#">Редактировать</a>
+                  <%--<a class="action-link" data-action="preview" data-id="${mark.id}" href="#">Просмотр</a>--%>
+                <a class="action-link last" data-action="remove" data-id="${mark.id}"
+                   href="<c:url value="/marks/delete?mark-id=${mark.id}"/>">Удалить</a>
+              </div>
+            </li>
+          </c:forEach>
+        </ul>
       </div>
     </c:forEach>
   </div>
