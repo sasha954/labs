@@ -10,4 +10,6 @@ public interface MarkDao {
     void deleteMark(int markId);
     Mark updateMark(Mark mark);
     Mark getMarkById(int markId);
+
+    List<Mark> getMarkByAlternativeId(int id);
 }

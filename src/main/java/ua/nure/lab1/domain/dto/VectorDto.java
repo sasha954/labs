@@ -16,12 +16,12 @@ public class VectorDto {
         this.alternativeId = alternativeId;
     }
 
-    public String[] getMarksId() {
+    public String[] getMarkId() {
         return markId;
     }
 
-    public void setMarksId(String[] marksId) {
-        this.markId = marksId;
+    public void setMarkId(String[] markId) {
+        this.markId = markId;
     }
 
     @Override

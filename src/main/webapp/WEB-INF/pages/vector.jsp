@@ -1,5 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@include file="../jspf/header.jspf" %>
 <header class="main-header">
   <section class="nav-container container">
@@ -66,7 +67,7 @@
                     <div class="form-group row">
                     <label class="col-sm-3 col-form-label" for="mark-num"><strong>${marks.key} :</strong></label>
                     <div class="col-sm-9">
-                      <select class="form-control" id="mark-num" name="markId">
+                      <select class="form-control" id="mark-num" name="marks">
                         <c:forEach var="mark" items="${marks.value}">
                           <option value="${mark.id}">${mark.name}</option>
                         </c:forEach>
@@ -84,21 +85,23 @@
         </div>
       </div>
   <div class="content-wrapper row">
-    <c:forEach var="vectors" items="${vectorList}">
+    <c:forEach var="alternative" items="${alternativeList}">
+    <c:if test="${fn:length(alternative.mark) gt 0}">
       <div class="mark-list-wrapper">
         <ul class="mark-list">
-          <li class="mark-list__header h6">${vectors.alternative.name}</li>
-          <c:forEach var="mark" items="${vectors.mark}">
+          <li class="mark-list__header h6">${alternative.name}</li>
+          <c:forEach var="mark" items="${alternative.mark}">
             <li class="mark-list__item">${mark.criterion.name} <span class="mark-list__mark-value">${mark.name}</span>
 
-              <div class="actions">
+             <!-- <div class="actions">
               <a class="action-link" data-action="update" data-id="${mark.id}" href="#">Редактировать</a>
               <a class="action-link" data-action="preview" data-id="${mark.id}" href="#">Просмотр</a>
               <a class="action-link last" data-action="remove" data-id="${mark.id}" href="#">Удалить</a>
-            </div></li>
+            </div>--></li>
           </c:forEach>
         </ul>
       </div>
+      </c:if>
     </c:forEach>
   </div>
 </section>

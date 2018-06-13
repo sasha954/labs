@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
+import ua.nure.lab1.domain.dto.AlternativeDto;
 import ua.nure.lab1.domain.entity.Alternative;
 import ua.nure.lab1.service.AlternativeService;
 
@@ -39,7 +40,7 @@ public class AlternativeController {
     }
 
     @PostMapping
-    public ModelAndView createAlternative(Alternative alternative) {
+    public ModelAndView createAlternative(AlternativeDto alternative) {
         alternativeService.createNewAlternative(alternative);
 
         System.out.println(alternative);

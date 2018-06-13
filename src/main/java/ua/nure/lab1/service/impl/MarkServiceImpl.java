@@ -6,6 +6,7 @@ import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Service;
 import ua.nure.lab1.dao.MarkDao;
 import ua.nure.lab1.domain.dto.MarkDto;
+import ua.nure.lab1.domain.entity.Alternative;
 import ua.nure.lab1.domain.entity.Criteria;
 import ua.nure.lab1.domain.entity.Mark;
 import ua.nure.lab1.service.CriteriaService;
@@ -33,6 +34,11 @@ public class MarkServiceImpl implements MarkService {
     @Override
     public Mark createMark(MarkDto markDto) {
         return markDao.createMark(convertFromDto(markDto));
+    }
+
+    @Override
+    public List<Mark> getMarkByAlternative(Alternative alternative) {
+        return markDao.getMarkByAlternativeId(alternative.getId());
     }
 
     private Mark convertFromDto(MarkDto markDto) {

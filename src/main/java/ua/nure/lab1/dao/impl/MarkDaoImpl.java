@@ -33,6 +33,9 @@ public class MarkDaoImpl implements MarkDao {
     private static final String GET_MARK_BY_ID = "select * from mark where id=?";
     private static final String UPDATE_MARK = "update mark set name=?, `range`=?, numMark=?, normMark=?, criteria_id=? " +
             "where id=?";
+    private static final String GET_BY_ALTERNATIVE = "select vm.* from alternative as a" +
+            " join (select v.alternative_id, m.* from vector as v join mark as m on m.id = v.mark_id)" +
+            " as vm on vm.alternative_id = a.id where a.id=?";
 
     @Autowired
     private JdbcTemplate jdbcTemplate;
@@ -72,6 +75,11 @@ public class MarkDaoImpl implements MarkDao {
         mark.setId(markId);
 
         return mark;
+    }
+
+    @Override
+    public List<Mark> getMarkByAlternativeId(int id) {
+        return jdbcTemplate.query(GET_BY_ALTERNATIVE, (rs, rowNum) -> constructMark(rs), id);
     }
 
     @Override
