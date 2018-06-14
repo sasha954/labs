@@ -21,11 +21,14 @@
             <li class="nav-item">
               <a class="nav-link" href="/criteria">Criteria</a>
             </li>
-            <li class="nav-item activea">
+            <li class="nav-item">
               <a class="nav-link" href="/marks">Marks</a>
             </li>
-            <li class="nav-item">
+            <li class="nav-item active">
               <a class="nav-link" href="/vectors">Vectors</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/users">Users</a>
             </li>
           </ul>
         </div>

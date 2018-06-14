@@ -34,7 +34,6 @@ public class AlternativeServiceImpl implements AlternativeService {
         for (Alternative alternative : alternatives) {
             alternative.setMark(markService.getMarkByAlternative(alternative));
         }
-        System.out.println("----------------");
     }
 
     private List<Alternative> getMockList() {

@@ -2,9 +2,9 @@ package ua.nure.lab1.domain.entity;
 
 public class User extends Entity{
     private String userName;
-    private String role;
+    private Role role;
 
-    public User(int id, String userName, String role) {
+    public User(int id, String userName, Role role) {
         setId(id);
         this.userName = userName;
         this.role = role;
@@ -22,11 +22,11 @@ public class User extends Entity{
         this.userName = userName;
     }
 
-    public String getRole() {
+    public Role getRole() {
         return role;
     }
 
-    public void setRole(String role) {
+    public void setRole(Role role) {
         this.role = role;
     }
 

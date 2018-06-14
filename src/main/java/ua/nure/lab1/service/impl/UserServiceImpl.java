@@ -1,13 +1,14 @@
 package ua.nure.lab1.service.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import ua.nure.lab1.dao.UserDao;
 import ua.nure.lab1.domain.entity.User;
 import ua.nure.lab1.service.UserService;
 
 import java.util.List;
 
-
+@Service
 public class UserServiceImpl implements UserService {
 
     @Autowired

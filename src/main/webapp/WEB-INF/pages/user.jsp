@@ -21,11 +21,14 @@
             <li class="nav-item">
               <a class="nav-link" href="/criteria">Criteria</a>
             </li>
-            <li class="nav-item activea">
+            <li class="nav-item">
               <a class="nav-link" href="/marks">Marks</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="/vectors">Vectors</a>
+            </li>
+            <li class="nav-item active">
+              <a class="nav-link" href="/users">Users</a>
             </li>
           </ul>
         </div>
@@ -38,43 +41,38 @@
     <p class="h3">Пользователи</p>
   </div>
   <div class="form-container row">
-    <a href="javascript:void(0)" data-toggle="modal" data-target=".bd-example-modal-lg">Создать вектор</a>
+    <a href="javascript:void(0)" data-toggle="modal" data-target=".bd-example-modal-lg">Создать пользователя</a>
   </div>
   <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg">
           <div class="modal-content">
             <div class="modal-header">
-              <h5 class="modal-title">Создать/Редактировать вектор</h5>
+              <h5 class="modal-title">Создать/Редактировать пользователя</h5>
               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
               </button>
             </div>
 
             <div class="popup-form-wrapper">
-              <form method="post" action="/vectors">
+              <form class="user-form" method="post" action="/users">
                 <div class="form-group row">
-                  <label class="col-sm-3 col-form-label" for="alternative"><strong>Альтернатива: </strong></label>
+                  <label class="col-sm-3 col-form-label" for="user-name"><strong>Имя пользователя: </strong></label>
                     <div class="col-sm-9">
-                    <select class="form-control" id="alternative" name="alternativeId">
-                      <c:forEach var="alternative" items="${alternativeList}">
-                        <option value="${alternative.id}">${alternative.name}</option>
-                      </c:forEach>
-                    </select>
+                      <input type="text" name="userName" class="form-control" id="user-name" placeholder="Имя пользователя"/>
                     </div>
                 </div>
-
-                 <c:forEach var="marks" items="${markMap}">
-                    <div class="form-group row">
-                    <label class="col-sm-3 col-form-label" for="mark-num"><strong>${marks.key} :</strong></label>
+                <div class="form-group row">
+                  <label class="col-sm-3 col-form-label" for="role"><strong>Роль: </strong></label>
                     <div class="col-sm-9">
-                      <select class="form-control" id="mark-num" name="marks">
-                        <c:forEach var="mark" items="${marks.value}">
-                          <option value="${mark.id}">${mark.name}</option>
+                      <select name="role" class="form-control" id="role">
+                        <c:forEach var="role" items="${roles}">
+                          <option>${role}</option>
                         </c:forEach>
                       </select>
-                      </div>
                     </div>
-                  </c:forEach>
+                </div>
+                 <input type="hidden" name="id" class="form-control" id="user-id" value="0"></div>
+
                 <div class="modal-footer">
                   <button type="button" class="btn btn-secondary" data-dismiss="modal">Закрыть</button>
                   <button type="submit" class="btn btn-primary">Добавить</button>
@@ -85,25 +83,21 @@
         </div>
       </div>
   <div class="content-wrapper row">
-    <c:forEach var="alternative" items="${alternativeList}">
-    <c:if test="${fn:length(alternative.mark) gt 0}">
-      <div class="mark-list-wrapper">
+    <div class="mark-list-wrapper">
         <ul class="mark-list">
-          <li class="mark-list__header h6">${alternative.name}</li>
-          <c:forEach var="mark" items="${alternative.mark}">
-            <li class="mark-list__item">${mark.criterion.name} <span class="mark-list__mark-value">${mark.name}</span>
-
-             <!-- <div class="actions">
-              <a class="action-link" data-action="update" data-id="${mark.id}" href="#">Редактировать</a>
-              <a class="action-link" data-action="preview" data-id="${mark.id}" href="#">Просмотр</a>
-              <a class="action-link last" data-action="remove" data-id="${mark.id}" href="#">Удалить</a>
-            </div>--></li>
+          <c:forEach var="user" items="${userList}">
+            <li class="mark-list__item" data-role="${user.role}"><span class="user-name">${user.userName}</span>
+              <div class="actions">
+                <a class="action-link last" data-action="update-user"  data-toggle="modal" data-target=".bd-example-modal-lg"
+                 data-id="${user.id}" href="javascript:void(0)">Редактировать</a>
+                <%--<a class="action-link" data-action="preview" data-id="${user.id}" href="javascript:void(0)">Просмотр</a>--%>
+                <%--<a class="action-link last" data-action="remove" data-id="${user.id}"
+                   href="<c:url value="/users/delete?user-id=${user.id}"/>">Удалить</a>--%>
+              </div>
+             </li>
           </c:forEach>
         </ul>
-      </div>
-      </c:if>
-    </c:forEach>
-  </div>
+        </div>
 </section>
 </div>
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
@@ -115,6 +109,8 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"
         integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm"
         crossorigin="anonymous"></script>
+<script src="../scripts/main.js"></script>
+
 </body>
 
 </html>

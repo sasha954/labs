@@ -71,8 +71,8 @@ body {
 }
 
 .mark-list__mark-value {
-  position: relative;
-  left: 25%;
+  position: absolute;
+  left: 45%;
 }
 
 .popup-form-wrapper {

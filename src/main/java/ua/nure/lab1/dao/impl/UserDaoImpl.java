@@ -4,7 +4,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.GeneratedKeyHolder;
 import org.springframework.jdbc.support.KeyHolder;
+import org.springframework.stereotype.Repository;
 import ua.nure.lab1.dao.UserDao;
+import ua.nure.lab1.domain.entity.Role;
 import ua.nure.lab1.domain.entity.User;
 
 import java.sql.PreparedStatement;
@@ -13,6 +15,7 @@ import java.sql.SQLException;
 import java.util.List;
 import java.util.Optional;
 
+@Repository
 public class UserDaoImpl implements UserDao {
 
     private static final String INSERT_USER = "insert into user values (default, ?, ?)";
@@ -30,7 +33,7 @@ public class UserDaoImpl implements UserDao {
         jdbcTemplate.update(con -> {
              PreparedStatement preparedStatement = con.prepareStatement(INSERT_USER, new String[] {"id"});
              preparedStatement.setString(1, user.getUserName());
-             preparedStatement.setString(2, user.getRole());
+             preparedStatement.setInt(2, user.getRole().getValue());
              return preparedStatement;
         }, keyHolder);
 
@@ -54,7 +57,7 @@ public class UserDaoImpl implements UserDao {
         User user = new User();
         user.setId(rs.getInt("id"));
         user.setUserName(rs.getString("name"));
-        user.setRole(rs.getString("range"));
+        user.setRole(Role.getRole(rs.getInt("range")));
         return user;
     }
 

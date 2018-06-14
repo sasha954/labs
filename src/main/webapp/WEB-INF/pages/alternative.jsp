@@ -26,6 +26,9 @@
             <li class="nav-item">
               <a class="nav-link" href="/vectors">Vectors</a>
             </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/users">Users</a>
+            </li>
           </ul>
         </div>
       </nav>
@@ -74,7 +77,7 @@
       <c:forEach var="alternative" items="${alternativeList}">
         <li class="mark-list__item"><span class="alternative-name">${alternative.name}</span>
           <div class="actions">
-            <a class="action-link" data-action="update"  data-toggle="modal" data-target=".bd-example-modal-lg"
+            <a class="action-link" data-action="update-alternative"  data-toggle="modal" data-target=".bd-example-modal-lg"
              data-id="${alternative.id}" href="javascript:void(0)">Редактировать</a>
             <%--<a class="action-link" data-action="preview" data-id="${alternative.id}" href="javascript:void(0)">Просмотр</a>--%>
             <a class="action-link last" data-action="remove" data-id="${alternative.id}"
