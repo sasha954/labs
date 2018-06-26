@@ -37,3 +37,7 @@ out
 
 #jrebel config
 rebel.xml
+
+*.gradle
+*.properties
+*.xml

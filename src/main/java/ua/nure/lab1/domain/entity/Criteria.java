@@ -2,14 +2,14 @@ package ua.nure.lab1.domain.entity;
 
 public class Criteria extends Entity {
     private String name;
-    private int range;
+    private double range;
     private int weight;
     private Type type;
     private OptimalityType optimType;
     private String units;
     private ScaleType scaleType;
 
-    public Criteria(int id, String name, int range, int weight, Type type, OptimalityType optimType, String units, ScaleType scaleType) {
+    public Criteria(int id, String name, double range, int weight, Type type, OptimalityType optimType, String units, ScaleType scaleType) {
         setId(id);
         this.name = name;
         this.range = range;
@@ -32,11 +32,11 @@ public class Criteria extends Entity {
         return this;
     }
 
-    public int getRange() {
+    public double getRange() {
         return range;
     }
 
-    public Criteria setRange(int range) {
+    public Criteria setRange(double range) {
         this.range = range;
         return this;
     }

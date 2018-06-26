@@ -3,18 +3,24 @@ package ua.nure.lab1.domain.entity;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
+
 public class Result extends Entity {
     private User user;
     private Alternative alternative;
-    private double range;
-    private int weight;
+    private int range;
+    private double weight;
 
-    public Result(int id, User user, Alternative alternative, double range, int weight) {
+    public Result(int id, User user, Alternative alternative, int range, double weight) {
         setId(id);
         this.user = user;
-        this.alternative = alternative;
         this.range = range;
         this.weight = weight;
+    }
+
+
+    public Result() {
     }
 
     public User getUser() {
@@ -33,19 +39,19 @@ public class Result extends Entity {
         this.alternative = alternative;
     }
 
-    public double getRange() {
+    public int getRange() {
         return range;
     }
 
-    public void setRange(double range) {
+    public void setRange(int range) {
         this.range = range;
     }
 
-    public int getWeight() {
+    public double getWeight() {
         return weight;
     }
 
-    public void setWeight(int weight) {
+    public void setWeight(double weight) {
         this.weight = weight;
     }
 

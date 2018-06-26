@@ -95,3 +95,53 @@ body {
   left: 8em;
 }
 
+.form-control-wrapper {
+  display: flex;
+  justify-content: space-between;
+}
+
+.alternative {
+  width: 48%;
+}
+
+.alternative p {
+  text-align: center;
+}
+
+li.header {
+  display: flex;
+  justify-content: space-around;
+  font-weight: 500;
+  padding: 10px 0;
+  border-bottom: 2px solid #ccc;
+}
+
+li.criteria-item {
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid #cecece;
+  padding: 10px;
+  font-weight: 400;
+}
+
+.alternative ul {
+  background-color: #fff;
+  box-shadow: 0 0 25px #ccc;
+}
+
+.make-choose {
+  margin: 15px auto;
+  display: block;
+  width: 35%;
+}
+
+.radio-button-wrapper {
+  display: flex;
+  justify-content: space-evenly;
+  padding: 15px;
+  background: #fff;
+}
+
+.radio label {
+  margin: 0;
+}

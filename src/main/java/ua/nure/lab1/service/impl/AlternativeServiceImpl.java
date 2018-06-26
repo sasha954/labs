@@ -49,7 +49,9 @@ public class AlternativeServiceImpl implements AlternativeService {
 
     @Override
     public Alternative getById(int id) {
-        return alternativeDao.getAlternativeById(id);
+        Alternative alternative = alternativeDao.getAlternativeById(id);
+        alternative.setMark(markService.getMarkByAlternative(alternative));
+        return alternative;
     }
 
     @Override
@@ -67,7 +69,7 @@ public class AlternativeServiceImpl implements AlternativeService {
     }
 
     @Transactional
-    private List<Mark> constructMarkList(AlternativeDto alternativeDto) {
+    protected List<Mark> constructMarkList(AlternativeDto alternativeDto) {
         List<Mark> marks = new ArrayList<>();
         for (String id : alternativeDto.getMarks()) {
             marks.add(markService.getMarkById(Integer.parseInt(id)));

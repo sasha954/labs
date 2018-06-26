@@ -15,19 +15,22 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav mr-auto">
             <li class="nav-item">
-              <a class="nav-link" href="/alternatives">Alternative <span class="sr-only">(current)</span></a>
+              <a class="nav-link" href="/alternatives">Альтернативы <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="/criteria">Criteria</a>
+              <a class="nav-link" href="/criteria">Критерии</a>
             </li>
             <li class="nav-item active">
-              <a class="nav-link" href="/marks">Marks</a>
+              <a class="nav-link" href="/marks">Оценки</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="/vectors">Vectors</a>
+              <a class="nav-link" href="/vectors">Векторы</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="/users">Users</a>
+              <a class="nav-link" href="/users">Пользователи</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/results">Результат</a>
             </li>
           </ul>
         </div>

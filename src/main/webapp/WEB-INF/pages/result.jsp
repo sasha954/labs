@@ -17,7 +17,7 @@
             <li class="nav-item">
               <a class="nav-link" href="/alternatives">Альтернативы <span class="sr-only">(current)</span></a>
             </li>
-            <li class="nav-item active">
+            <li class="nav-item">
               <a class="nav-link" href="/criteria">Критерии</a>
             </li>
             <li class="nav-item">
@@ -29,7 +29,7 @@
             <li class="nav-item">
               <a class="nav-link" href="/users">Пользователи</a>
             </li>
-            <li class="nav-item">
+            <li class="nav-item active">
               <a class="nav-link" href="/results">Результат</a>
             </li>
           </ul>
@@ -40,58 +40,33 @@
 </header>
 <section class="container main-content">
   <div class="title-wrapper row">
-    <p class="h3">Критерии</p>
+    <p class="h3">Результат</p>
   </div>
   <div class="form-container row">
-    <a href="javascript:void(0)" data-toggle="modal" data-target=".bd-example-modal-lg">Создать критерий</a>
+    <a href="javascript:void(0)" data-toggle="modal" data-target=".bd-example-modal-lg">Создать результат</a>
   </div>
   <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
        aria-hidden="true">
     <div class="modal-dialog modal-lg">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title">Создать/Редактировать критерий</h5>
+          <h5 class="modal-title">Создать/Редактировать результат</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
 
         <div class="popup-form-wrapper">
-          <form method="post" action="/criteria">
-            <div class="form-group"><label for="criteria-name">Название:</label>
-              <input type="text" name="name" class="form-control" id="criteria-name" placeholder="Название"></div>
-            <div class="form-group"><label for="criteria-range">Ранг:</label>
-              <input type="text" name="range" class="form-control" id="criteria-range" placeholder="Ранг"></div>
-            <div class="form-group"><label for="criteria-weight">Вес:</label>
-              <input type="text" name="weight" class="form-control" id="criteria-weight" placeholder="Вес"></div>
+          <form method="post" action="/results">
             <div class="form-group">
               <label for="criteria-type">Тип: </label>
-              <select class="form-control" id="criteria-type" name="type">
-                <c:forEach var="elem" items="${typeList}">
-                  <option value="${elem}">${elem.value}</option>
-                </c:forEach>
-              </select>
-            </div>
-            <div class="form-group">
-              <label for="criteria-type">Тип оптимизации: </label>
-              <select class="form-control" id="criteria-type" name="optimType">
-                <c:forEach var="elem" items="${optimalityTypeList}">
-                  <option value="${elem}">${elem.value}</option>
+              <select class="form-control" id="criteria-type" name="alternative-id">
+                <c:forEach var="elem" items="${alternatives}">
+                  <option value="${elem.id}">${elem.name}</option>
                 </c:forEach>
               </select>
             </div>
 
-            <div class="form-group"><label for="criteria-scale">Еденица измерения:</label>
-              <input type="text" name="units" class="form-control" id="criteria-scale" placeholder="Еденица измерения">
-            </div>
-            <div class="form-group">
-              <label for="criteria-type">Тип шкалы: </label>
-              <select class="form-control" id="criteria-type" name="scaleType">
-                <c:forEach var="elem" items="${scaleTypeList}">
-                  <option value="${elem}">${elem.value}</option>
-                </c:forEach>
-              </select>
-            </div>
 
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-dismiss="modal">Закрыть</button>
@@ -107,29 +82,17 @@
     <table class="table">
       <thead>
       <tr>
-        <th>Название</th>
-        <th>Тип</th>
-        <th>Тип оптимальности</th>
-        <th>Единица измерения</th>
-        <th>Тип шкалы</th>
-        <th></th>
+        <th>Альтернатива</th>
+        <th>Ганг</th>
+        <th>Вес</th>
       </tr>
       </thead>
       <tbody>
-      <c:forEach var="criteria" items="${criteriaList}">
+      <c:forEach var="result" items="${results}">
         <tr>
-          <td>${criteria.name}</td>
-          <td>${criteria.type.value}</td>
-          <td>${criteria.optimType.value}</td>
-          <td>${criteria.units}</td>
-          <td>${criteria.scaleType.value}</td>
-          <td>
-              <%--<a href="#" class="action-link" data-id="${criteria.id}">Preview</a>--%>
-            <a href="javascript:void(0)" class="action-link" data-action="update-criteria" data-toggle="modal"
-               data-target=".bd-example-modal-lg" data-id="${criteria.id}">Редактировать</a>
-            <a href="<c:url value="/criteria/delete?criteria-id=${criteria.id}"/>" class="action-link last"
-               data-id="${criteria.id}">Удалить</a>
-          </td>
+          <td>${result.alternative.name}</td>
+          <td>${result.range}</td>
+          <td>${result.weight}</td>
         </tr>
       </c:forEach>
       </tbody>

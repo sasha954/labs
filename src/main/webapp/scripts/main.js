@@ -33,7 +33,7 @@
     idField.val(userId);
     roleField.find('option').toArray().forEach(elem => {
       elem = $(elem);
-      if(elem.text() == role) {
+      if(elem.text() === role) {
         elem.attr('selected', true);
       }
     });

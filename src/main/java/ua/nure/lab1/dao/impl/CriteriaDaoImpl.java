@@ -47,7 +47,7 @@ public class CriteriaDaoImpl implements CriteriaDao {
         jdbcTemplate.update(con -> {
             PreparedStatement statement = con.prepareStatement(CREATE_CRITERIA, new String[]{ID_FIELD});
             statement.setString(1, criteria.getName());
-            statement.setInt(2, criteria.getRange());
+            statement.setDouble(2, criteria.getRange());
             statement.setInt(3, criteria.getWeight());
             statement.setString(4, criteria.getType().toString());
             statement.setString(5, criteria.getOptimType().toString());
@@ -67,7 +67,7 @@ public class CriteriaDaoImpl implements CriteriaDao {
         jdbcTemplate.update(con -> {
             PreparedStatement statement = con.prepareStatement(UPDATE_CRITERIEA);
             statement.setString(1, criteria.getName());
-            statement.setInt(2, criteria.getRange());
+            statement.setDouble(2, criteria.getRange());
             statement.setInt(3, criteria.getWeight());
             statement.setString(4, criteria.getType().toString());
             statement.setString(5, criteria.getOptimType().toString());
@@ -93,7 +93,7 @@ public class CriteriaDaoImpl implements CriteriaDao {
     private Criteria constructCriteria(ResultSet resultSet) throws SQLException {
         Criteria criteria = new Criteria();
         criteria.setId(resultSet.getInt(ID_FIELD));
-        criteria.setName(resultSet.getString(NAME_FIELD)).setRange(resultSet.getInt(RANGE_FIELD))
+        criteria.setName(resultSet.getString(NAME_FIELD)).setRange(resultSet.getDouble(RANGE_FIELD))
                 .setWeight(resultSet.getInt(WEIGHT_FIELD)).setType(Type.valueOf(resultSet.getString(TYPE_FIELD)))
                 .setOptimType(OptimalityType.valueOf(resultSet.getString(OPTIMALITY_TYPE_FIELD)))
                 .setUnits(resultSet.getString(UNITS_FIELD))
